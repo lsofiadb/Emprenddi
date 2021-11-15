@@ -7,7 +7,7 @@ class ContractorDetailView (generics.CreateAPIView):
     queryset = Contractor.objects.all()
     serializer_class = ContractorSerializer
 
-#Obtener todos los Contractors de la base de datos
+# Get all contractors
 class ContractorApi(generics.ListAPIView): 
     queryset = Contractor.objects.all()
     serializer_class = ContractorSerializer

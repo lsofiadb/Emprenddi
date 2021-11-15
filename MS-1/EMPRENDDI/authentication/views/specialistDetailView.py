@@ -7,7 +7,7 @@ class SpecialistDetailView (generics.CreateAPIView):
     queryset = Specialist.objects.all()
     serializer_class = SpecialistSerializer
 
-#Obtener todos los Specialistas de la base de datos
+# Get all specialists.
 class SpecialistApi(generics.ListAPIView): 
     queryset = Specialist.objects.all()
     serializer_class = SpecialistSerializer

@@ -23,17 +23,13 @@ urlpatterns = [
     path('refresh/', TokenRefreshView.as_view()),
     path('verifyToken/', views.VerifyTokenView.as_view()),
     path('contractor/', views.ContractorCreateView.as_view()),
-    path('contractor/all',views.ContractorApi.as_view()), #Permite ver todos los usuarios
+    path('contractor/all',views.ContractorApi.as_view()), # Get all contractors
     path('contractor/create',views.ContractorDetailView.as_view()),
     path('contractor/<int:pk>',views.ContractorUpdateApi.as_view()),
     path('contractor/<int:pk>/delete',views.ContractorDeleteApi.as_view()),
-    path('specialist/all',views.SpecialistApi.as_view()), #Permite ver todos los usuarios
+    path('specialist/all',views.SpecialistApi.as_view()), # Get all specialists
     path('specialist/create',views.SpecialistDetailView.as_view()),
     path('specialist/<int:pk>',views.SpecialistUpdateApi.as_view()),
     path('specialist/<int:pk>/delete',views.SpecialistDeleteApi.as_view()),
-    path('specialist/allXcategory/<str:param>',views.SpecialistApiXCategory.as_view()),
-    path('specialist/category',views.SpecialistCategory.as_view()),
-    path('specialist/category/<str:category>',views.SpecialistCategoryy.as_view()),
-    #path('specialist/category/prueba',views.SpecialistCategoryy.as_view()),
-    #url(r'^specialist/allXcategory/(?P<cat>\s+)/$',views.SpecialistApiXCategory.as_view(), name="SpecialistApiXCategory"),
+    path('specialist/category/<str:category>',views.SpecialistCategory.as_view()),
 ]

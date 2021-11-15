@@ -4,4 +4,4 @@ from .verifyTokenView import VerifyTokenView
 
 from .contractorDetailView import ContractorDetailView, ContractorApi, ContractorUpdateApi, ContractorDeleteApi
 from .specialistDetailView import SpecialistDetailView, SpecialistApi, SpecialistUpdateApi, SpecialistDeleteApi
-from .specialistDetailXcategory import SpecialistApiXCategory, SpecialistCategory, SpecialistCategoryy
+from .specialistDetailByCategory import  SpecialistCategory
