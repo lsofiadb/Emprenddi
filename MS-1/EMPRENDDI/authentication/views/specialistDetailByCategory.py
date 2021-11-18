@@ -12,8 +12,8 @@ from rest_framework.response import Response
 from authentication.models.specialist import Specialist
 from authentication.serializers.specialistSerializer import SpecialistSerializer
 
-# Get specialists accordong to category
-class SpecialistCategory(generics.ListAPIView):
+# Get specialists according to category provided
+class SpecialistbyCategory(generics.ListAPIView):
     
     serializer_class = SpecialistSerializer
     def get_queryset(self):

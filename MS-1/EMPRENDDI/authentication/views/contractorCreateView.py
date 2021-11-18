@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from authentication.serializers.contractorSerializer import ContractorSerializer
 
+# Option 1 Create Contractor
 class ContractorCreateView(views.APIView):
     def post(self, request, *args, **kwargs):
         serializer = ContractorSerializer(data=request.data)

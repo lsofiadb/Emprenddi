@@ -3,19 +3,22 @@ from rest_framework.response import Response
 from authentication.models.contractor import Contractor
 from authentication.serializers.contractorSerializer import ContractorSerializer
 
-class ContractorDetailView (generics.CreateAPIView):
+# Option 2 Create Contractor
+class ContractorCreateView2 (generics.CreateAPIView):
     queryset = Contractor.objects.all()
     serializer_class = ContractorSerializer
 
-# Get all contractors
-class ContractorApi(generics.ListAPIView): 
+# Get All Contractors
+class ContractorGetAllApi(generics.ListAPIView): 
     queryset = Contractor.objects.all()
     serializer_class = ContractorSerializer
 
-class ContractorUpdateApi(generics.RetrieveUpdateAPIView):
+# Get Selected ID Contractor
+class ContractorGetSelectedApi(generics.RetrieveUpdateAPIView):
     queryset = Contractor.objects.all()
     serializer_class = ContractorSerializer
  
+# Delete Selected ID Contractor
 class ContractorDeleteApi(generics.DestroyAPIView):
     queryset = Contractor.objects.all()
     serializer_class = ContractorSerializer

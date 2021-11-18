@@ -22,14 +22,14 @@ urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
     path('verifyToken/', views.VerifyTokenView.as_view()),
-    path('contractor/', views.ContractorCreateView.as_view()),
-    path('contractor/all',views.ContractorApi.as_view()), # Get all contractors
-    path('contractor/create',views.ContractorDetailView.as_view()),
-    path('contractor/<int:pk>',views.ContractorUpdateApi.as_view()),
-    path('contractor/<int:pk>/delete',views.ContractorDeleteApi.as_view()),
-    path('specialist/all',views.SpecialistApi.as_view()), # Get all specialists
-    path('specialist/create',views.SpecialistDetailView.as_view()),
-    path('specialist/<int:pk>',views.SpecialistUpdateApi.as_view()),
-    path('specialist/<int:pk>/delete',views.SpecialistDeleteApi.as_view()),
-    path('specialist/category/<str:category>',views.SpecialistCategory.as_view()),
+    path('contractor/create', views.ContractorCreateView.as_view()),
+    #path('contractor/create',views.ContractorCreateView2.as_view()),
+    path('contractor/getSelected/<int:pk>',views.ContractorGetSelectedApi.as_view()),
+    path('contractor/deleteSelected/<int:pk>',views.ContractorDeleteApi.as_view()),
+    path('contractor/getAll',views.ContractorGetAllApi.as_view()), # Get all contractors
+    path('specialist/create',views.SpecialistCreateView.as_view()),
+    path('specialist/getSelected/<int:pk>',views.SpecialistGetSelectedApi.as_view()),
+    path('specialist/deleteSelected/<int:pk>',views.SpecialistDeleteApi.as_view()),
+    path('specialist/getAll',views.SpecialistGetAllApi.as_view()), # Get all specialists
+    path('specialist/viewbycategory/<str:category>',views.SpecialistbyCategory.as_view()),
 ]
