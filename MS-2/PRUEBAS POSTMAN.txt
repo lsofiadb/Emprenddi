@@ -1,0 +1,64 @@
+#--------PRUEBAS POSTMAN---------------#
+#AÑADIR UNA NUEVA RESERVA
+METODO: POST
+http://localhost:8080/reservationController/addReservation
+
+{
+    "id":12,
+    "contractorId":5,
+    "specialistId":5,
+    "initialDate":"2021-12-18T18:46:19-0700",
+    "finalDate":"2021-12-21T18:46:19-0700",
+    "score":4.4
+}
+
+--------------------------------------------
+#OBTENER TODAS LAS RESERVAS
+METODO: GET
+http://localhost:8080/reservationController/getAllReservations
+
+--------------------------------------------
+METODO: GET
+#OBTENER RESERVAS POR ID DEL CONTRATANTE
+
+http://localhost:8080/reservationController/getReservationByContractor/5
+
+--------------------------------------------
+#BORRAR UNA RESERVA POR ID EN LA URL
+METODO DELETE
+
+http://localhost:8080/reservationController/deleteReservationById/4
+
+--------------------------------------------
+#UPDATE DE UNA RESERVA
+METODO PUT
+
+http://localhost:8080/reservationController/updateReservation
+
+
+ {
+        "id": 3,
+        "contractorId": 2,
+        "specialistId": 5,
+        "initialDate": "2021-02-10T01:46:19.000+00:00",
+        "finalDate": "2021-02-12T01:46:19.000+00:00",
+        "score": 4.5
+    }
+
+----------------------------------------------
+#OBTENER RESERVAS POR ESPECIALISTA
+METODO GET
+
+http://localhost:8080/reservationController/getReservationsBySpecialist/5
+
+
+----------------------------------------------
+#CONSULTAR SCORE DE ESPECIALISTA
+METODO GET 
+http://localhost:8080/reservationController/getScoreBySpecialist/5
+
+
+
+
+
+
