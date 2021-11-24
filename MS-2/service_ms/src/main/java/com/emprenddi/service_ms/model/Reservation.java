@@ -1,6 +1,9 @@
-package com.emprenddi.service_ms.models;
+package com.emprenddi.service_ms.model;
 
 import org.springframework.data.annotation.Id;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.util.Date;
 
 

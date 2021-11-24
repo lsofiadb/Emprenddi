@@ -1,6 +1,6 @@
-package com.emprenddi.service_ms.repositories;
+package com.emprenddi.service_ms.repository;
 
-import com.emprenddi.service_ms.models.Reservation;
+import com.emprenddi.service_ms.model.Reservation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
@@ -12,5 +12,4 @@ public interface ReservationRepository extends MongoRepository<Reservation, Long
     List<Reservation> findReservationByContractorId(Long contractorId);
     List<Reservation> findReservationBySpecialistId(Long specialistId);
     void deleteReservationById(Long id);
-    void deleteServiceById(Long id);
 }

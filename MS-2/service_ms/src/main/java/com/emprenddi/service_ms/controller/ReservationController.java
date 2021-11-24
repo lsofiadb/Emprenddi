@@ -1,6 +1,8 @@
 package com.emprenddi.service_ms.controller;
 
-import com.emprenddi.service_ms.models.Reservation;
+import com.emprenddi.service_ms.exception.ContractorIDNotFoundException;
+import com.emprenddi.service_ms.exception.ReservationIDNotFoundException;
+import com.emprenddi.service_ms.model.Reservation;
 import com.emprenddi.service_ms.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +21,17 @@ public class ReservationController {
         return reservationService.addReservation(reservation);
     }
 
-    @GetMapping("/getReservationByContractor/{contractorId}")
+    @GetMapping("/getReservationsByContractor/{contractorId}")
     List <Reservation> getReservationsByContractor(@PathVariable Long contractorId){
-        return reservationService.getReservationsByContractor(contractorId);
+        if(contractorId==null){
+            throw new ContractorIDNotFoundException("El ID tiene valor : " + contractorId);
+        }else if(reservationService.getReservationsByContractor(contractorId).isEmpty()) {
+            throw new ContractorIDNotFoundException("El contratista no ha realizado reservas");
+        }
+        else{
+            return reservationService.getReservationsByContractor(contractorId);
+        }
+
     }
 
     @GetMapping("/getAllReservations")
@@ -30,12 +40,16 @@ public class ReservationController {
     }
 
     @DeleteMapping("/deleteReservationById/{id}")
-    Boolean addReservation(@PathVariable Long id){
-        return reservationService.deleteReservationById(id);
+    Boolean deleteReservation(@PathVariable Long id){
+        if(reservationService.findReservationById(id)==null){
+            throw new ReservationIDNotFoundException("No se encontró la reserva con el ID "+id);
+        }else{
+            return reservationService.deleteReservationById(id);
+        }
     }
 
     @PutMapping("/updateReservation")
-    Boolean updateReservation(@RequestBody Reservation reservation){
+    Reservation updateReservation(@RequestBody Reservation reservation){
         return reservationService.updateReservation(reservation);
     }
 

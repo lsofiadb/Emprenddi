@@ -1,7 +1,7 @@
 package com.emprenddi.service_ms.service;
 
-import com.emprenddi.service_ms.models.Reservation;
-import com.emprenddi.service_ms.repositories.ReservationRepository;
+import com.emprenddi.service_ms.model.Reservation;
+import com.emprenddi.service_ms.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -11,57 +11,51 @@ import java.util.Optional;
 public class ReservationService {
 
     @Autowired
-    ReservationRepository reserDAO;
+    ReservationRepository reservationRepository;
 
     //add new Reservation
     public Reservation addReservation(Reservation reservation){
-        return reserDAO.save(reservation);
+        return reservationRepository.save(reservation);
     }
 
     //find a reservation by id
     public Optional<Reservation> findReservationById(Long id){
-        return reserDAO.findReservationById(id);
+        return reservationRepository.findReservationById(id);
     }
 
     //delete a reservation
     public boolean deleteReservationById(Long id){
-        if(findReservationById(id)==null){
-            System.out.println("Don't exist the id");
-            return false;
-        } else{
-            reserDAO.deleteReservationById(id);
-            return true;
-        }
+        reservationRepository.deleteReservationById(id);
+        return true;
     }
 
-    //get contractor reservations
+    //get contractor by reservations
     public List<Reservation> getReservationsByContractor(Long contractorId){
-        return reserDAO.findReservationByContractorId(contractorId);
+        return reservationRepository.findReservationByContractorId(contractorId);
     }
 
     //get reservations by specialist
     public List<Reservation> getReservationBySpecialist(Long specialistId){
-        return reserDAO.findReservationBySpecialistId(specialistId);
+        return reservationRepository.findReservationBySpecialistId(specialistId);
     }
 
     //get all reservations
     public List<Reservation> getAllReservations(){
-        return  reserDAO.findAll();
+        return  reservationRepository.findAll();
     }
 
     //update reservation
-    public boolean updateReservation(Reservation reservation){
+    public Reservation updateReservation(Reservation reservation){
         if(findReservationById(reservation.getId())==null){
             System.out.println("Don't exist the id"+reservation.getId());
-            return false;
+            return null;
         }else{
             addReservation(reservation);
-            return true;
+            return reservation;
         }
     }
 
     //calculate score
-
     public double calculateScoreBySpecialist(Long id){
         double score = 0;
         double sum = 0;
