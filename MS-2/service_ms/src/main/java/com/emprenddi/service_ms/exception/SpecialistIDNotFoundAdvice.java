@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseBody
 public class SpecialistIDNotFoundAdvice {
     @ResponseBody
-    @ExceptionHandler(ContractorIDNotFoundException.class)
+    @ExceptionHandler(SpecialistIDNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String EntityNotFoundAdvice(ContractorIDNotFoundException ex){
+    String EntityNotFoundAdvice(SpecialistIDNotFoundException ex){
         return ex.getMessage();
     }
 }

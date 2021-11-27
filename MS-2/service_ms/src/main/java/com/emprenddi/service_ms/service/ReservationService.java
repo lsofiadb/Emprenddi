@@ -13,7 +13,7 @@ public class ReservationService {
     @Autowired
     ReservationRepository reservationRepository;
 
-    //add new Reservation
+    //add a new Reservation
     public Reservation addReservation(Reservation reservation){
         return reservationRepository.save(reservation);
     }
@@ -24,18 +24,18 @@ public class ReservationService {
     }
 
     //delete a reservation
-    public boolean deleteReservationById(Long id){
+    public void deleteReservationById(Long id){
         reservationRepository.deleteReservationById(id);
-        return true;
     }
 
-    //get contractor by reservations
+    //get reservations by contractor
     public List<Reservation> getReservationsByContractor(Long contractorId){
-        return reservationRepository.findReservationByContractorId(contractorId);
+        return reservationRepository.findReservationsByContractorId(contractorId);
+
     }
 
     //get reservations by specialist
-    public List<Reservation> getReservationBySpecialist(Long specialistId){
+    public List<Reservation> getReservationsBySpecialist(Long specialistId){
         return reservationRepository.findReservationBySpecialistId(specialistId);
     }
 
@@ -46,20 +46,15 @@ public class ReservationService {
 
     //update reservation
     public Reservation updateReservation(Reservation reservation){
-        if(findReservationById(reservation.getId())==null){
-            System.out.println("Don't exist the id"+reservation.getId());
-            return null;
-        }else{
-            addReservation(reservation);
-            return reservation;
-        }
+        addReservation(reservation);
+        return reservation;
     }
 
     //calculate score
     public double calculateScoreBySpecialist(Long id){
         double score = 0;
         double sum = 0;
-        List <Reservation> reservations = getReservationBySpecialist(id);
+        List <Reservation> reservations = getReservationsBySpecialist(id);
         for(int i = 0; i<reservations.size(); i++){
             sum = sum + reservations.get(i).getScore();
         }

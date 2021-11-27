@@ -13,7 +13,6 @@ public class ReservationIDNotFoundAdvice {
     @ExceptionHandler(ReservationIDNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     String EntityNotFoundAdvice(ReservationIDNotFoundException ex){
-        
         return ex.getMessage();
     }
 }
