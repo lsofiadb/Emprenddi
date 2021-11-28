@@ -4,12 +4,12 @@ METODO: POST
 http://localhost:8080/reservationController/addReservation
 
 {
-    "id":12,
-    "contractorId":5,
+    "id":11,
+    "contractorId":6,
     "specialistId":5,
-    "initialDate":"2021-12-18T18:46:19-0700",
-    "finalDate":"2021-12-21T18:46:19-0700",
-    "score":4.4
+    "initialDate":"2021-09-27T12:46:19-0700",
+    "finalDate":"2021-10-27T16:46:19-0700",
+    "score":4.5
 }
 
 --------------------------------------------
@@ -21,44 +21,72 @@ http://localhost:8080/reservationController/getAllReservations
 METODO: GET
 #OBTENER RESERVAS POR ID DEL CONTRATANTE
 
-http://localhost:8080/reservationController/getReservationByContractor/5
+http://localhost:8080/reservationController/getReservationsByContractor/2
 
+#VALIDACION
+http://localhost:8080/reservationController/getReservationsByContractor/20
 --------------------------------------------
 #BORRAR UNA RESERVA POR ID EN LA URL
 METODO DELETE
 
-http://localhost:8080/reservationController/deleteReservationById/4
-
+http://localhost:8080/reservationController/deleteReservationById/11
+#VALIDACION
+http://localhost:8080/reservationController/deleteReservationById/11
 --------------------------------------------
 #UPDATE DE UNA RESERVA
 METODO PUT
 
 http://localhost:8080/reservationController/updateReservation
-
-
- {
-        "id": 3,
-        "contractorId": 2,
-        "specialistId": 5,
+{
+        "id": 6,
+        "contractorId": 3,
+        "specialistId": 6,
         "initialDate": "2021-02-10T01:46:19.000+00:00",
         "finalDate": "2021-02-12T01:46:19.000+00:00",
-        "score": 4.5
-    }
-
-----------------------------------------------
-#OBTENER RESERVAS POR ESPECIALISTA
+        "score": 4.3
+}
+-----------------------------------------------------------------------
+#OBTENER RESERVAS POR ID DEL ESPECIALISTA
 METODO GET
 
 http://localhost:8080/reservationController/getReservationsBySpecialist/5
-
-
-----------------------------------------------
+#VALIDACION
+http://localhost:8080/reservationController/getReservationsBySpecialist/20
+---------------------------------------------------------------------
 #CONSULTAR SCORE DE ESPECIALISTA
 METODO GET 
 http://localhost:8080/reservationController/getScoreBySpecialist/5
+#VALIDACION
+http://localhost:8080/reservationController/getScoreBySpecialist/20
+----------------------------------------------------------------------
+#OBTENER ARRAY CON TIEMPO DE LA RESERVA
+METODO GET
+http://localhost:8080/reservationController/getTimeByService
+#EJEMPLO 1
+{
+    "id":10,
+    "contractorId":6,
+    "specialistId":5,
+    "initialDate":"2021-12-27T12:46:19-0700",
+    "finalDate":"2021-12-27T16:46:19-0700",
+    "score":4.8
+}
 
+#EJEMPLO 2
+{
+    "id": 1,
+    "contractorId": 1,
+    "specialistId": 1,
+    "initialDate": "2021-10-30T01:46:19.000+00:00",
+    "finalDate": "2021-12-30T01:46:19.000+00:00",
+    "score": 5.0
+}
+---------------------------------------------------
+#OBTENER RESERVA POR ID
+METODO GET
+http://localhost:8080/reservationController/getReservationById/5
 
-
-
+#VALIDACION
+http://localhost:8080/reservationController/getReservationById/256
 
 

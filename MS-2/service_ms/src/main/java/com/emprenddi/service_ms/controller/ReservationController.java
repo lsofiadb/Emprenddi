@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -80,4 +81,14 @@ public class ReservationController {
             return reservationService.calculateScoreBySpecialist(specialistId);
         }
     }
+
+    @GetMapping("/getTimeByService")
+    ArrayList<Long> getTimeByService(@RequestBody Reservation reservation){
+        if(reservationService.findReservationById(reservation.getId()).isEmpty()){
+            throw new ReservationIDNotFoundException("No se encontro la reserva con el ID "+reservation.getId()+", "+HttpStatus.NOT_FOUND);
+        }else{
+            return reservationService.calculateTimeByService(reservation);
+        }
+    }
+
 }
