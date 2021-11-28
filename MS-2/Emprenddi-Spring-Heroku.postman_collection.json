@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "96b4ba79-4f73-4a7b-aea4-70366cdcb39c",
+		"name": "Emprenddi-Spring-Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/addReservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":11,\r\n    \"contractorId\":6,\r\n    \"specialistId\":5,\r\n    \"initialDate\":\"2021-09-27T12:46:19-0700\",\r\n    \"finalDate\":\"2021-10-27T16:46:19-0700\",\r\n    \"score\":4.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/addReservation",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"addReservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/getAllReservations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/getAllReservations",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"getAllReservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/getReservationsByContractor/4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/getReservationsByContractor/4",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"getReservationsByContractor",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/deleteReservationById/11",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/deleteReservationById/11",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"deleteReservationById",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/updateReservation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 6,\r\n        \"contractorId\": 3,\r\n        \"specialistId\": 6,\r\n        \"initialDate\": \"2021-02-10T01:46:19.000+00:00\",\r\n        \"finalDate\": \"2021-02-12T01:46:19.000+00:00\",\r\n        \"score\": 4.8\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/updateReservation",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"updateReservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/getReservationsBySpecialist/5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/getReservationsBySpecialist/5",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"getReservationsBySpecialist",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/getScoreBySpecialist/5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/getScoreBySpecialist/5",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"getScoreBySpecialist",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/getReservationById/5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/getReservationById/5",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"getReservationById",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/getTimeByService",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"contractorId\": 1,\r\n    \"specialistId\": 1,\r\n    \"initialDate\": \"2021-10-30T01:46:19.000+00:00\",\r\n    \"finalDate\": \"2021-12-30T01:46:19.000+00:00\",\r\n    \"score\": 5.0\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/getTimeByService",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"getTimeByService"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
