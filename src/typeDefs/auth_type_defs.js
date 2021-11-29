@@ -30,17 +30,18 @@ const authTypeDefs = gql `
 
     type SpecialistDetail {
         id: Int!
+        dni: Int!
         name: String!
-		lastName: String!
+		lastname: String!
 		age: Int!
 		email: String!
-		telephoneNumber: Int!
+		telephone_number: Float!
 		city: String!
-		pricePerHour: Int!
+		priceXhour: Int!
 		description: String!
 		category: String!
 		url: String!
-		score: Float!
+		score: String!
     }
 
     type Mutation {
@@ -51,6 +52,7 @@ const authTypeDefs = gql `
 
     type Query {
         userDetailById(userId: Int!): SpecialistDetail!
+        getAllSpecialist: [SpecialistDetail]!
     }
 `
 

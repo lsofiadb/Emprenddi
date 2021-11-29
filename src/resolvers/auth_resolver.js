@@ -6,6 +6,9 @@ const usersResolver = {
             else
                 return null
         },
+        getAllSpecialist:  async(_, { specialistId }, { dataSources }) => {
+            return await dataSources.authAPI.getAllSpecialist()
+        }
     },
 
     Mutation: {

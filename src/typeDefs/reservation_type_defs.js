@@ -1,13 +1,13 @@
-const { gql } = require('apollo-server')
+// const { gql } = require('apollo-server')
 
-const reservationTypeDefs = gql `
-    type Mutation {
+// const reservationTypeDefs = gql `
+//     type Mutation {
 
-    }
+//     }
 
-    type Query {
+//     type Query {
         
-    }
-`
+//     }
+// `
 
-module.exports = reservationTypeDefs
+// module.exports = reservationTypeDefs
