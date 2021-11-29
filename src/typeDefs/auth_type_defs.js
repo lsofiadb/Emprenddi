@@ -50,7 +50,7 @@ const authTypeDefs = gql `
     }
 
     type Query {
-        userDetailById(userId: Int!): UserDetail!
+        userDetailById(userId: Int!): SpecialistDetail!
     }
 `
 
