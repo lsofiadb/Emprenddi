@@ -32,7 +32,7 @@ public class ReservationService {
 
     //get reservations by contractor
     public List<Reservation> getReservationsByContractor(Long contractorId){
-        return reservationRepository.findReservationsByContractorId(contractorId);
+        return reservationRepository.findReservationByContractorId(contractorId);
 
     }
 
@@ -81,5 +81,11 @@ public class ReservationService {
         time.add(2,minutes);
         time.add(3,seconds);
         return time;
+    }
+
+    public int calculateListSize(){
+        int size = 0;
+        size = getAllReservations().size();
+        return size;
     }
 }

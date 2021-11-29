@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\":11,\r\n    \"contractorId\":6,\r\n    \"specialistId\":5,\r\n    \"initialDate\":\"2021-09-27T12:46:19-0700\",\r\n    \"finalDate\":\"2021-10-27T16:46:19-0700\",\r\n    \"score\":4.5\r\n}",
+					"raw": "{\r\n    \"id\":12,\r\n    \"contractorId\":7,\r\n    \"specialistId\":5,\r\n    \"initialDate\":\"2021-09-27T12:46:19-0700\",\r\n    \"finalDate\":\"2021-10-27T16:46:19-0700\",\r\n    \"score\":4.3\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,7 +67,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/reservationController/getReservationsByContractor/20",
+					"raw": "http://localhost:8080/reservationController/getReservationsByContractor/5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -76,7 +76,7 @@
 					"path": [
 						"reservationController",
 						"getReservationsByContractor",
-						"20"
+						"5"
 					]
 				}
 			},
@@ -138,7 +138,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/reservationController/getReservationsBySpecialist/20",
+					"raw": "http://localhost:8080/reservationController/getReservationsBySpecialist/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -147,7 +147,7 @@
 					"path": [
 						"reservationController",
 						"getReservationsBySpecialist",
-						"20"
+						"3"
 					]
 				}
 			},
@@ -222,6 +222,46 @@
 					"path": [
 						"reservationController",
 						"getTimeByService"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/reservationController/getSizeList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reservationController/getSizeList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservationController",
+						"getSizeList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/reservationController/getID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reservationController/getID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservationController",
+						"getID"
 					]
 				}
 			},

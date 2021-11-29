@@ -91,4 +91,13 @@ public class ReservationController {
         }
     }
 
+    @GetMapping("/getSizeList")
+    int getSizeList(){
+        return reservationService.calculateListSize();
+    }
+
+    @GetMapping("/getID")
+    int getID(){
+        return reservationService.calculateListSize()+1;
+    }
 }

@@ -228,6 +228,48 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/getSizeList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/getSizeList",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"getSizeList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://emprenddi-spring.herokuapp.com/reservationController/getID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://emprenddi-spring.herokuapp.com/reservationController/getID",
+					"protocol": "https",
+					"host": [
+						"emprenddi-spring",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reservationController",
+						"getID"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
