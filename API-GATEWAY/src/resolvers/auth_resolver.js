@@ -1,10 +1,5 @@
 const usersResolver = {
   Query: {
-    userDetailById: (_, { userId }, { dataSources, userIdToken }) => {
-      if (userId === userIdToken)
-        return dataSources.authAPI.getContractor(userId);
-      else return null;
-    },
     getAllSpecialist: async (_, { specialistId }, { dataSources }) => {
       return await dataSources.authAPI.getAllSpecialist();
     },
@@ -14,10 +9,16 @@ const usersResolver = {
     filterSpecialistByCategory: async (_, { category }, { dataSources }) => {
       return await dataSources.authAPI.filterSpecialist(category);
     },
+    getAllContractor: async (_, { contractorId }, { dataSources }) => {
+      return await dataSources.authAPI.getAllContractor();
+    },
+    getContractorById: async (_, { contractorId }, { dataSources }) => {
+      return await dataSources.authAPI.getContractor(contractorId);
+    },
   },
 
   Mutation: {
-    signUpUser: async (_, { userInput }, { dataSources }) => {
+    signUpContractor: async (_, { userInput }, { dataSources }) => {
       const authInput = {
         dni: userInput.dni,
         username: userInput.username,
@@ -26,7 +27,7 @@ const usersResolver = {
         lastname: userInput.lastname,
         age: userInput.age,
         email: userInput.email,
-        telephoneNumber: userInput.telephoneNumber,
+        telephone_number: userInput.telephone_number,
         city: userInput.city,
         address: userInput.address,
       };
@@ -34,10 +35,36 @@ const usersResolver = {
       return await dataSources.authAPI.createContractor(authInput);
     },
 
+    signUpSpecialist: async (_, { userInput }, { dataSources }) => {
+      const authInput = {
+        dni: userInput.dni,
+        name: userInput.name,
+        lastname: userInput.lastname,
+        age: userInput.age,
+        email: userInput.email,
+        telephone_number: userInput.telephone_number,
+        city: userInput.city,
+        priceXhour: userInput.priceXhour,
+        description: userInput.description,
+        category: userInput.category,
+        url: userInput.url,
+        score: userInput.score,
+      };
+
+      return await dataSources.authAPI.createSpecialist(authInput);
+    },
+
     logIn: (_, { credentials }, { dataSources }) =>
       dataSources.authAPI.authRequest(credentials),
+
     refreshToken: (_, { refresh }, { dataSources }) =>
       dataSources.authAPI.refreshToken(refresh),
+
+    deleteContractorById: (_, { contractorId }, { dataSources }) =>
+      dataSources.authAPI.deleteContractor(contractorId),
+
+    deleteSpecialistById: (_, { specialistId }, { dataSources }) =>
+      dataSources.authAPI.deleteSpecialist(specialistId),
   },
 };
 
