@@ -29,7 +29,8 @@ urlpatterns = [
     path('contractor/getAll',views.ContractorGetAllApi.as_view()), # Get all contractors
     path('specialist/create',views.SpecialistCreateView.as_view()),
     path('specialist/getSelected/<int:pk>',views.SpecialistGetSelectedApi.as_view()),
-    path('specialist/getSelectedScore/<int:pk>',views.SpecialistGetSelectedApi_Score.as_view()),
+    path('specialist/getSelectedScore/<int:pk>',views.SpecialistGetSelectedApi_Score.as_view()), #Get Score
+    path('specialist/getSelectedPrice/<int:pk>',views.SpecialistGetSelectedApi_priceXhour.as_view()), #Get priceXhour
     path('specialist/deleteSelected/<int:pk>',views.SpecialistDeleteApi.as_view()),
     path('specialist/getAll',views.SpecialistGetAllApi.as_view()), # Get all specialists
     path('specialist/viewbycategory/<str:category>',views.SpecialistbyCategory.as_view()),

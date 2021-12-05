@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from authentication.models.specialist import Specialist
-from authentication.serializers.specialistSerializer import SpecialistSerializer, SpecialistSerializer_Score
+from authentication.serializers.specialistSerializer import SpecialistSerializer, SpecialistSerializer_Score, SpecialistSerializer_priceXhour
 
 # Create Specialist
 class SpecialistCreateView (generics.CreateAPIView):
@@ -27,3 +27,8 @@ class SpecialistDeleteApi(generics.DestroyAPIView):
 class SpecialistGetSelectedApi_Score(generics.RetrieveUpdateAPIView):
     queryset = Specialist.objects.all()
     serializer_class = SpecialistSerializer_Score
+
+# Update priceXhour by ID Specialist
+class SpecialistGetSelectedApi_priceXhour(generics.RetrieveUpdateAPIView):
+    queryset = Specialist.objects.all()
+    serializer_class = SpecialistSerializer_priceXhour

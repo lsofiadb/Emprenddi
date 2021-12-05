@@ -10,3 +10,8 @@ class SpecialistSerializer_Score (serializers.ModelSerializer):
     class Meta:
         model = Specialist
         fields = ['score']
+
+class SpecialistSerializer_priceXhour (serializers.ModelSerializer):
+    class Meta:
+        model = Specialist
+        fields = ['priceXhour']
