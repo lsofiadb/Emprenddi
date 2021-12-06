@@ -1,22 +1,22 @@
 const reservationResolver = {
   Query: {
     getAllReservations: async (_, { reserve }, { dataSources }) => {
-      return await dataSources.ReservationAPI.getAllReservations();
+      return await dataSources.reservationAPI.getAllReservations();
     },
     getReservationsByContractor: async (_, { contractorId }, { dataSources }) => {
-      return await dataSources.ReservationAPI.getReservationsByContractor(contractorId);
+      return await dataSources.reservationAPI.getReservationsByContractor(contractorId);
     },
     getReservesBySpecialist: async (_, { specialistId }, { dataSources }) => {
-      return await dataSources.ReservationAPI.getReservesBySpecialist(specialistId);
+      return await dataSources.reservationAPI.getReservesBySpecialist(specialistId);
     },
     getSpecialistScore: async (_, { specialistId }, { dataSources }) => {
-      return await dataSources.ReservationAPI.getSpecialistScore(specialistId);
+      return await dataSources.reservationAPI.getSpecialistScore(specialistId);
     },
     getArrayWithReserveTime: async (_, { reserve }, { dataSources }) => {
-      return await dataSources.ReservationAPI.getArrayWithReserveTime();
+      return await dataSources.reservationAPI.getArrayWithReserveTime();
     },
     getReserveById: async (_, { reserveId }, { dataSources }) => {
-      return await dataSources.ReservationAPI.getReserveById(reserveId);
+      return await dataSources.reservationAPI.getReserveById(reserveId);
     },
   },
   
@@ -31,7 +31,7 @@ const reservationResolver = {
         score: reserveInput.score,
       };
 
-      return await dataSources.ReservationAPI.createReserve(authInput);
+      return await dataSources.reservationAPI.createReserve(authInput);
     },
 
     updateReserve: async (_, { reserveInput }, { dataSources }) => {
@@ -44,11 +44,11 @@ const reservationResolver = {
         score: reserveInput.score,
       };
 
-      return await dataSources.ReservationAPI.updateReserve(authInput);
+      return await dataSources.reservationAPI.updateReserve(authInput);
     },
 
     deleteReserve: (_, { reserveId }, { dataSources }) =>
-      dataSources.ReservationAPI.deleteReserve(reserveId),
+      dataSources.reservationAPI.deleteReserve(reserveId),
   },
 };
 
