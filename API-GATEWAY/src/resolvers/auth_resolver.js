@@ -12,8 +12,11 @@ const usersResolver = {
     getAllContractor: async (_, { contractorId }, { dataSources }) => {
       return await dataSources.authAPI.getAllContractor();
     },
-    getContractorById: async (_, { contractorId }, { dataSources }) => {
-      return await dataSources.authAPI.getContractor(contractorId);
+    getContractorById: async (_, { contractorId }, { dataSources, userIdToken }) => {
+      if (contractorId == userIdToken)
+          return await dataSources.authAPI.getContractor(contractorId);
+      else
+          return null
     },
     //TODO: Complete these endpoints with MS1 and MS2
     // getSpecialistScore: async (_, { specialistId }, { dataSources }) => {
