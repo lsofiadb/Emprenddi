@@ -7,11 +7,11 @@ const reservationTypeDefs = gql`
     specialistId: Int!
     initialDate: String!
     finalDate: String!
-    score: Int!
+    score: Float!
   }
 
   type ScoreReservation {
-    score: Int!
+    score: Float!
   }
 
   input Reservation {
@@ -20,7 +20,7 @@ const reservationTypeDefs = gql`
     specialistId: Int!
     initialDate: String!
     finalDate: String!
-    score: Int!
+    score: Float!
   }
 
   type Mutation {

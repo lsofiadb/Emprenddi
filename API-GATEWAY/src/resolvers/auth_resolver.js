@@ -15,6 +15,13 @@ const usersResolver = {
     getContractorById: async (_, { contractorId }, { dataSources }) => {
       return await dataSources.authAPI.getContractor(contractorId);
     },
+    //TODO: Complete these endpoints with MS1 and MS2
+    // getSpecialistScore: async (_, { specialistId }, { dataSources }) => {
+    //   return await dataSources.authAPI.getSpecialistScore(specialistId);
+    // },
+    // getSpecialistPrice: async (_, { specialistId }, { dataSources }) => {
+    //   return await dataSources.authAPI.getSpecialistPrice(specialistId);
+    // },
   },
 
   Mutation: {
@@ -53,6 +60,14 @@ const usersResolver = {
 
       return await dataSources.authAPI.createSpecialist(authInput);
     },
+    //TODO: Fisnish mutation with MS1 and MS2
+    // updateSpecialistScore: async (_, { specialistInput }, { dataSources }) => {
+    //   const authInput = {
+    //     score: specialistInput.score
+    //   };
+
+    //   return await dataSources.authAPI.updateSpecialistScore(specialistInput.id, authInput);
+    // },
 
     logIn: (_, { credentials }, { dataSources }) =>
       dataSources.authAPI.authRequest(credentials),

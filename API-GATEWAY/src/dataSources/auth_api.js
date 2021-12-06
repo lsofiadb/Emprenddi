@@ -54,6 +54,21 @@ class AuthAPI extends RESTDataSource {
   async filterSpecialist(category) {
     return await this.get(`/specialist/viewbycategory/${category}`);
   }
+
+  //TODO: Complete the functionalities after MVP
+  // async getSpecialistScore(specialistId) {
+  //   return await this.get(`/specialist/getSelectedScore/${specialistId}`);
+  // }
+
+  // async updateSpecialistScore(specialistId, score) {
+  //   score = new Object(JSON.parse(JSON.stringify(score)));
+  //   return await this.put(`/specialist/getSelectedScore/${specialistId}`, score);
+  // }
+
+  // async getSpecialistPrice(specialistId) {
+  //   return await this.get(`/specialist/getSelectedPrice/${specialistId}`);
+  // }
+
 }
 
 module.exports = AuthAPI;
