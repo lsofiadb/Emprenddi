@@ -1,22 +1,36 @@
+const { ApolloError } = require("apollo-server-errors");
+
 const usersResolver = {
   Query: {
-    getAllSpecialist: async (_, { specialistId }, { dataSources }) => {
-      return await dataSources.authAPI.getAllSpecialist();
+    getAllSpecialist: async (_, { specialistId }, { dataSources, userIdToken }) => {
+      if (userIdToken)
+        return await dataSources.authAPI.getAllSpecialist();
+      else
+        throw new ApolloError("No estás autorizado para acceder a esta información", 401);
     },
-    getSpecialistById: async (_, { specialistId }, { dataSources }) => {
-      return await dataSources.authAPI.getSpecialist(specialistId);
+    getSpecialistById: async (_, { specialistId }, { dataSources, userIdToken }) => {
+      if (userIdToken)
+        return await dataSources.authAPI.getSpecialist(specialistId);
+      else
+        throw new ApolloError("No estás autorizado para acceder a esta información", 401);
     },
-    filterSpecialistByCategory: async (_, { category }, { dataSources }) => {
-      return await dataSources.authAPI.filterSpecialist(category);
+    filterSpecialistByCategory: async (_, { category }, { dataSources, userIdToken }) => {
+      if (userIdToken)
+        return await dataSources.authAPI.filterSpecialist(category);
+      else
+        throw new ApolloError("No estás autorizado para acceder a esta información", 401);
     },
-    getAllContractor: async (_, { contractorId }, { dataSources }) => {
-      return await dataSources.authAPI.getAllContractor();
+    getAllContractor: async (_, { contractorId }, { dataSources, userIdToken }) => {
+      if (contractorId == userIdToken)
+        return await dataSources.authAPI.getAllContractor();
+      else
+        throw new ApolloError("No estás autorizado para acceder a esta información", 401);
     },
     getContractorById: async (_, { contractorId }, { dataSources, userIdToken }) => {
       if (contractorId == userIdToken)
-          return await dataSources.authAPI.getContractor(contractorId);
+        return await dataSources.authAPI.getContractor(contractorId);
       else
-          return null
+        throw new ApolloError("No estás autorizado para acceder a esta información", 401);
     },
     //TODO: Complete these endpoints with MS1 and MS2
     // getSpecialistScore: async (_, { specialistId }, { dataSources }) => {
@@ -45,23 +59,27 @@ const usersResolver = {
       return await dataSources.authAPI.createContractor(authInput);
     },
 
-    signUpSpecialist: async (_, { userInput }, { dataSources }) => {
-      const authInput = {
-        dni: userInput.dni,
-        name: userInput.name,
-        lastname: userInput.lastname,
-        age: userInput.age,
-        email: userInput.email,
-        telephone_number: userInput.telephone_number,
-        city: userInput.city,
-        priceXhour: userInput.priceXhour,
-        description: userInput.description,
-        category: userInput.category,
-        url: userInput.url,
-        score: userInput.score,
-      };
+    signUpSpecialist: async (_, { userInput }, { dataSources, userIdToken }) => {
+      if (userIdToken) {
+        const authInput = {
+          dni: userInput.dni,
+          name: userInput.name,
+          lastname: userInput.lastname,
+          age: userInput.age,
+          email: userInput.email,
+          telephone_number: userInput.telephone_number,
+          city: userInput.city,
+          priceXhour: userInput.priceXhour,
+          description: userInput.description,
+          category: userInput.category,
+          url: userInput.url,
+          score: userInput.score,
+        };
 
-      return await dataSources.authAPI.createSpecialist(authInput);
+        return await dataSources.authAPI.createSpecialist(authInput);
+      } else {
+        throw new ApolloError("No estás autorizado para acceder a esta información", 401);
+      }
     },
     //TODO: Fisnish mutation with MS1 and MS2
     // updateSpecialistScore: async (_, { specialistInput }, { dataSources }) => {
@@ -78,11 +96,19 @@ const usersResolver = {
     refreshToken: (_, { refresh }, { dataSources }) =>
       dataSources.authAPI.refreshToken(refresh),
 
-    deleteContractorById: (_, { contractorId }, { dataSources }) =>
-      dataSources.authAPI.deleteContractor(contractorId),
+    deleteContractorById: (_, { contractorId }, { dataSources, userIdToken }) => {
+      if (contractorId == userIdToken)
+        dataSources.authAPI.deleteContractor(contractorId);
+      else
+        throw new ApolloError("No estás autorizado para acceder a esta información", 401);
+    },
 
-    deleteSpecialistById: (_, { specialistId }, { dataSources }) =>
-      dataSources.authAPI.deleteSpecialist(specialistId),
+    deleteSpecialistById: (_, { specialistId }, { dataSources, userIdToken }) => {
+      if (userIdToken)
+        dataSources.authAPI.deleteSpecialist(specialistId);
+      else
+        throw new ApolloError("No estás autorizado para acceder a esta información", 401);
+    },
   },
 };
 
