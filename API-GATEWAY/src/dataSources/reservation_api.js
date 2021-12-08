@@ -44,6 +44,10 @@ class ReservationAPI extends RESTDataSource {
   async getReserveById(reserveId) {
     return await this.get(`/reservationController/getReservationById/${reserveId}`);
   }
+
+  async getLastId() {
+    return await this.get(`/reservationController/getID`);
+  }
 }
 
 module.exports = ReservationAPI;

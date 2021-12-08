@@ -10,12 +10,7 @@ const reservationTypeDefs = gql`
     score: Float!
   }
 
-  type ScoreReservation {
-    score: Float!
-  }
-
   input Reservation {
-    id: Int!
     contractorId: Int!
     specialistId: Int!
     initialDate: String!
@@ -33,9 +28,10 @@ const reservationTypeDefs = gql`
     getAllReservations: [ReservationsDetail]!
     getReservationsByContractor(contractorId: Int!): [ReservationsDetail]!
     getReservesBySpecialist(specialistId: Int!): [ReservationsDetail]!
-    getSpecialistScore(specialistId: Int!): ScoreReservation!
+    getSpecialistScore(specialistId: Int!): Float!
     getArrayWithReserveTime: [ReservationsDetail]!
     getReserveById(reserveId: Int!): ReservationsDetail!
+    getLastId: Int!
   }
 `;
 

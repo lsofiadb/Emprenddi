@@ -38,13 +38,21 @@ const reservationResolver = {
       else
         throw new ApolloError("No estás autorizado para acceder a esta información", 401);
     },
+    getLastId: async (_, { reserve }, { dataSources, userIdToken }) => {
+      if (userIdToken)
+        return await dataSources.reservationAPI.getLastId();
+      else
+        throw new ApolloError("No estás autorizado para acceder a esta información", 401);
+    },
   },
 
   Mutation: {
     createReserve: async (_, { reserveInput }, { dataSources, userIdToken }) => {
       if (userIdToken) {
+        const getNextId = await (dataSources.reservationAPI.getLastId());
+
         const authInput = {
-          id: reserveInput.id,
+          id: getNextId,
           contractorId: reserveInput.contractorId,
           specialistId: reserveInput.specialistId,
           initialDate: reserveInput.initialDate,
