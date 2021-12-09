@@ -10,12 +10,11 @@ import Information from './components/Information.vue'
 import Reservations from './components/Reservations.vue'
  
 const routes = [
-    // {
-      //   path: '/',
-        // name: 'root',
-       //  component: App
-    // },
-     {
+    {
+        path: '/',
+        redirect: "/user/logIn"
+    },
+    {
         path: '/user/home',
         name: 'home',
         component: Home,
