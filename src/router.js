@@ -80,9 +80,11 @@ async function isAuth() {
         localStorage.setItem("token_access", result.data.refreshToken.access);
         return true;
     } catch {
-        localStorage.clear();
-        alert("Su sesión expiró, por favor vuelva a iniciar sesión");
-        return false;
+        toastr.error('Su sesión expiró, por favor vuelva a iniciar sesión','¡Sesión expirada!', {timeOut: 1000});
+        setTimeout(() => {
+            localStorage.clear();
+            return false;
+        }, 1500);
     }
 }
 

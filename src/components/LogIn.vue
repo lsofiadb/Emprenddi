@@ -1,23 +1,30 @@
 <template>
-  <div class="modal-dialog text-center">
-    <div class="col-sm-8 main-section">
+  <div>
+    <div class="main-section">
       <div class="modal-content">
-        <div class="col-12 user-img">
+        <div class="user-img">
           <img src="../assets/user.png" />
         </div>
         <!--<form class="col-12" th:action="@{/login}" method="get">-->
-        <form class="col-12" v-on:submit.prevent="processLogInUser">
+        <form class="" v-on:submit.prevent="processLogInUser" autocomplete="off">
           <div class="form-group" id="user-group">
+            <div>
+              <i class="fas fa-user"></i>
+            </div>
             <input
+              id="myUser"
               type="text"
               class="form-control" v-model="user.username"
               placeholder="Nombre de usuario"
               name="username"
             />
           </div>
-          <div class="form-group" id="contrasena-group">
-            <i class="fas fa-lock"></i>
+          <div class="form-group">
+            <div>
+              <i class="fas fa-lock"></i>
+            </div>
             <input
+              id="myPass"
               type="password"
               class="form-control" v-model="user.password"
               placeholder="Contraseña"
@@ -33,11 +40,8 @@
             >No tienes una cuenta registrate aqui</router-link
           >
         </div>
-        <div th:if="${param.error}" class="alert alert-danger" role="alert">
-          Contraseña invalida.
-        </div>
-        <div th:if="${param.logout}" class="alert alert-success" role="alert">
-          Ha cerrado sesion.
+        <div th:if="${param.error}" v-if="msgWrongPass" class="alert alert-danger" role="alert">
+          Credenciales incorrectas.
         </div>
       </div>
     </div>
@@ -56,6 +60,7 @@ export default {
         username: "",
         password: "",
       },
+      msgWrongPass: false
     };
   },
 
@@ -85,7 +90,11 @@ export default {
           this.$emit("completedLogIn", dataLogIn);
         })
         .catch((error) => {
-          alert("ERROR 401: Credenciales Incorrectas.");
+          this.msgWrongPass = true;
+          $('#myUser').focus();
+          setTimeout(() => {
+            this.msgWrongPass = false;
+          }, 1500);
         });
     },
   },
@@ -93,30 +102,30 @@ export default {
 };
 </script>
 
-<style>
-body {
-  background-size: cover;
-}
-
+<style scoped>
 .main-section {
-  margin: 0 auto;
-  margin-top: 25%;
-  padding: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  text-align: center;
 }
 
 .modal-content {
-  background-color: #3b4652;
-  opacity: 0.85;
-  padding: 0 20px;
+  background-color: #3B4652;
+  padding: 0 56px;
   box-shadow: 0px 0px 3px #848484;
+  width: 400px;
+  box-shadow: 0px 0px 5px 2px #000000;
 }
+
 .user-img {
   margin-top: -50px;
   margin-bottom: 35px;
 }
 
 .user-img img {
-  width: 100xp;
+  width: 100px;
   height: 100px;
   box-shadow: 0px 0px 3px #848484;
   border-radius: 50%;
@@ -126,36 +135,32 @@ body {
   height: 42px;
   font-size: 18px;
   border: 0;
-  padding-left: 54px;
+  padding: 25px;
+  padding-left: 60px;
   border-radius: 5px;
+  color: #ffffff;
+  margin-bottom: 25px;
+  background-color: #212529;
 }
 
-.form-group::before {
-  font-family: "Font Awesome\ 5 Free";
+.form-group div {
+  background: #0d6efd;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  left: 28px;
-  font-size: 22px;
-  padding-top: 4px;
-}
-
-.form-group#user-group::before {
-  content: "\f007";
-}
-
-.form-group#contrasena-group {
-  margin-bottom: 10px;
-}
-
-.form-group#contrasena-group i {
-  position: relative;
-  left: -127px;
-  top: 37px;
-  font-size: 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: #ffffff;
 }
 
 button {
-  width: 60%;
-  margin: 5px 0 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .forgot {
@@ -163,6 +168,12 @@ button {
 }
 
 .forgot a {
+  font-size: 15px;
+  font-style: italic;
   color: white;
+}
+
+.forgot a:hover {
+  color: #B8BDBD;
 }
 </style>

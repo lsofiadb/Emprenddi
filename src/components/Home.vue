@@ -1,64 +1,26 @@
 <template>
-  <div>
-    <main>
-      <section id="banner">
-        <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../assets/emprender.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="../assets/emprender1.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="../assets/emprender2.jpg" class="d-block w-100" alt="...">
-                </div>
-              </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                 <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                 <span class="visually-hidden">Next</span>
-                </button>
-            </div> -->
-        <img src="../assets/emprender2.jpg" />
-        <div class="contenedor">
-          <h1>
-            ¡Bienvenido
-            <span>{{ getContractorById.name }}</span
-            >!
-          </h1>
-
-          <h2>Las mas rapidas soluciones a tu necesidad</h2>
-        </div>
-        <div class="Lista-desplegable">
-          <form>
-            <select name="Categorias">
-              <option>Django</option>
-              <option>Laravel</option>
-              <option>Javascript</option>
-              <option>Java</option>
-              <option>Spring</option>
+  <div class="myHome">
+    <div class="myHeader">
+      <div>
+        <h1>Las más rápidas soluciones a tu necesidad</h1>
+        <section>
+          <div>
+            <select name="" id="">
+              <option value="">One</option>
+              <option value="">Two</option>
+              <option value="">Three</option>
             </select>
-          </form>
-        </div>
-        <button type="submit" class="btn-reservar right">Reservar</button>
-      </section>
-    </main>
-    <section id="Bienvenidos">
-      <h2>Encuentra y contacta gratis con profesionales particulares</h2>
-    </section>
+            <a>Buscar</a>
+          </div>
+          <span>No te desanimes, encontraremos alguien capaz de resolver tu problema</span>
+        </section>
+      </div>
+    </div>
 
-    <section>
+    <div class="myBody">
+      <h2>Encuentra y contacta gratis con profesionales particulares</h2>
       <cards />
-    </section>
+    </div>
   </div>
 </template>
 <script>
@@ -104,85 +66,88 @@ export default {
   //}
 };
 </script>
-<style>
-section {
-  width: 100%;
-  margin-bottom: 25px;
-}
-#banner {
-  position: relative;
-}
-#banner img {
-  width: 100%;
-  height: 100%;
-}
-#banner .contenedor {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-}
-#banner h2 {
-  font-size: 28px;
-}
-#banner .Lista-desplegable {
-  position: absolute;
-  top: 80%;
-  left: 40%;
-  transform: translateX(-50%) translateY(-50%);
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-}
-#banner .btn-reservar {
-  position: absolute;
-  top: 80%;
-  left: 60%;
-  transform: translateX(-50%) translateY(-50%);
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 10px;
-  border-radius: 100px;
-  text-align: center;
+<style scoped>
+.myHome {
+  color: #333333;
+  background: #ffffff;
 }
 
-@media (min-width: 480px) {
-  #banner h2 {
-    font-size: 40px;
-  }
-}
-@media (min-width: 768px) {
-  #banner {
-    height: 300px;
-    overflow: hidden;
-  }
-  #banner img {
-    height: auto;
-    margin-top: -100px;
-  }
-}
-@media (min-width: 1024px) {
-  #banner img {
-    margin-top: -400px;
-  }
+.myHeader {
+  background: #E5E9F2;
+  display: flex;
+  justify-content: center;
+  padding-top: 75px;
+  padding-bottom: 125px;
 }
 
-#Bienvenidos {
+.myHeader a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.myHeader a:hover {
+  background: #333333;
+  transition: all .3s ease;
+}
+
+.myHeader div {
   text-align: center;
-  padding-top: 50px;
-  color: black;
+  width: 650px;
 }
 
-@media (min-width: 1024px) {
-  .contenedor {
-    width: 1500px;
-  }
+.myHeader div h1 {
+  font-weight: bold;
+  margin-bottom: 75px;
+}
+
+.myHeader div span {
+  display: block;
+  margin-top: 75px;
+  font-size: 18px!important;
+}
+
+.myHeader div section div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.myHeader div section span {
+  font-size: 15px;
+}
+
+.myHeader div section div select {
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.myHeader div section div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  background: #47525E;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 5px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.myHeader div section div a:hover {
+  color: #ffffff;
+}
+
+.myBody {
+  padding-bottom: 90px;
+}
+
+.myBody h2 {
+  text-align: center;
+  margin-top: 90px;
+  margin-bottom: 90px;
+  font-size: 24px;
+  font-weight: bold;
 }
 </style>
