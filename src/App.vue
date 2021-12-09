@@ -199,7 +199,7 @@ export default {
   position: relative;
   margin-top: 4px;
   margin-left: 5px;
-  color: #333333;
+  color: #47525E;
   font-size: 28px;
 }
 

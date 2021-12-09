@@ -5,7 +5,7 @@
         <h1>Las más rápidas soluciones a tu necesidad</h1>
         <section>
           <div>
-            <select name="" id="">
+            <select name="" id="mySelect">
               <option value="">One</option>
               <option value="">Two</option>
               <option value="">Three</option>
@@ -68,7 +68,7 @@ export default {
 </script>
 <style scoped>
 .myHome {
-  color: #333333;
+  color: #47525E;
   background: #ffffff;
 }
 
@@ -77,7 +77,7 @@ export default {
   display: flex;
   justify-content: center;
   padding-top: 75px;
-  padding-bottom: 125px;
+  padding-bottom: 100px;
 }
 
 .myHeader a {
@@ -115,11 +115,14 @@ export default {
   font-size: 15px;
 }
 
-.myHeader div section div select {
+.myHeader div section div #mySelect {
   width: 250px;
   height: 50px;
   cursor: pointer;
   border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  color: #47525E;
 }
 
 .myHeader div section div a {
@@ -131,6 +134,8 @@ export default {
   color: #ffffff;
   border-radius: 5px;
   padding: 5px;
+  padding-right: 90px;
+  padding-left: 90px;
   height: 50px;
   cursor: pointer;
 }
