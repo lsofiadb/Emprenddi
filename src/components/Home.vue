@@ -30,7 +30,9 @@ import Cards from "./Cards.vue";
 
 export default {
   name: "Home",
-
+  components: {
+    Cards
+  },
   data: function () {
     return {
       userId: jwt_decode(localStorage.getItem("token_refresh")).user_id,

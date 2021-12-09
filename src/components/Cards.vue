@@ -1,10 +1,10 @@
 <template>
 <div>
-  <div v-for="(specialist, i) in getAllSpecialist" :key="specialist.id" :specialist="specialist">
+  <div v-for="(specialist) in getAllSpecialist" :key="specialist.id" :specialist="specialist">
     <div class="card" style="width: 18rem">
       <img src="../assets/user.png" class="card-img-top" alt="..." />
       <div class="card-body">
-        <h5 class="card-title">Nombre Completo: {{specialist.name[i]}}</h5>
+        <h5 class="card-title">Nombre Completo: {{specialist.name}}</h5>
         <p class="card-text">Descripcion de la solucion</p>
         <div class="d-flex justify-content-center">
           <router-link to="/user/Information" class="btn btn-primary"
