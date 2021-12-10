@@ -25,7 +25,7 @@
               </li>
               <li class="cerrarSesion nav-item">
                   <router-link v-if="!is_auth" to="/user/logIn" class="nav-link text-white">Login</router-link>
-                  <a v-else class="nav-link text-white" v-on:click="logOut">Cerrar Sesión</a>
+                  <a id="myLogOut" v-else class="nav-link text-white" v-on:click="logOut">Cerrar Sesión</a>
               </li>
             </ul> 
           </div>
@@ -170,6 +170,7 @@ export default {
 
 .myNav a {
   color: #5E6873!important;
+  font-weight: 700;
 }
 
 .logo {
@@ -177,6 +178,11 @@ export default {
   font-size: 25px;
   text-decoration: none;
   display: flex;
+}
+
+.logo:hover {
+  transform: scale(1.02, 1.02);
+  transition: all .3s ease;
 }
 
 .logo div, .myFooter div {
@@ -201,6 +207,7 @@ export default {
   margin-left: 5px;
   color: #47525E;
   font-size: 28px;
+  text-shadow: 2px 1px 1px #000000;
 }
 
 .myUlOne {
@@ -219,6 +226,11 @@ export default {
   background: #47525E;
   transition: all .3s ease;
 } 
+
+#myLogOut:hover {
+  background: #dc3545;
+  transition: all .3s ease;
+}
 
 .cerrarSesion {
   margin-left: 50px;
@@ -257,6 +269,12 @@ export default {
   margin-left: 5px;
 }
 
+.myFooter .mySubs:hover {
+  background-color: #2C3034;
+  color: #ffffff;
+  transition: all .3s ease;
+}
+
 .myUlTwo li {
   list-style: none;
 }
@@ -275,6 +293,12 @@ export default {
 
 .myFooter .socialNet a {
   color: #ffffff;
+}
+
+.myFooter .socialNet a:hover {
+  color: #2C3034;
+  transform: scale(1.5, 1.5);
+  transition: all .3s ease;
 }
 
 .mySpanThree {

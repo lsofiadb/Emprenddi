@@ -19,7 +19,9 @@
 
     <div class="myBody">
       <h2>Encuentra y contacta gratis con profesionales particulares</h2>
-      <cards />
+      <div class="myCards">
+        <cards />
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +37,7 @@ export default {
   },
   data: function () {
     return {
-      userId: jwt_decode(localStorage.getItem("token_refresh")).user_id,
+      contractorId: jwt_decode(localStorage.getItem("token_refresh")).user_id,
       getContractorById: {
         username: "",
         name: "",
@@ -45,7 +47,7 @@ export default {
   },
 
   apollo: {
-    userDetailById: {
+    getContractorById: {
       query: gql`
         query ($contractorId: Int!) {
           getContractorById(contractorId: $contractorId) {
@@ -62,16 +64,12 @@ export default {
       },
     },
   },
-
-  //components: {
-  //    Cards
-  //}
 };
 </script>
 <style scoped>
 .myHome {
   color: #47525E;
-  background: #ffffff;
+  background: #6c7a8a;
 }
 
 .myHeader {
@@ -156,5 +154,17 @@ export default {
   margin-bottom: 90px;
   font-size: 24px;
   font-weight: bold;
+  color: #ffffff;
+}
+
+.myCards {
+  background: #6c7a8a;
+}
+
+.myCards div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
 }
 </style>
