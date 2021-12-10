@@ -123,7 +123,7 @@
             </div>
           </form>
 
-          <small class="d-inline-block text-muted mt-5">Todos los derechos reservados | © 2021 Templune</small>
+          <small class="d-inline-block text-muted mt-5">Todos los derechos reservados | © 2021 Emprenddi</small>
 
         </div>
       </div>

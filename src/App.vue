@@ -48,6 +48,11 @@
         <img src="./assets/logo-emprenddi.png" alt="Logo Emprenddi">
       </div>
       <span class="mySpanOne">Emprenddi</span>
+      <section class="myFlag">
+        <section class="myYellow"></section>
+        <section class="myBlue"></section>
+        <section class="myRed"></section>
+      </section>
     </section>
     
     <section class="twoColumns col-6">
@@ -304,5 +309,29 @@ export default {
 .mySpanThree {
   color: #ffffff;
   cursor: default;
+}
+
+.myFlag {
+  width: 100px; 
+  height: 50px;
+  position: absolute;
+  left: 150px;
+  margin-bottom: 500px;
+  cursor: default;
+}
+
+.myFlag .myYellow {
+  background: yellow;
+  height: 15px
+}
+
+.myFlag .myBlue {
+  background: blue;
+  height: 15px;
+}
+
+.myFlag .myRed {
+  background: red;
+  height: 20px;
 }
 </style>
