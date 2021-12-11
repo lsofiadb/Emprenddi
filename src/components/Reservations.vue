@@ -4,11 +4,7 @@
       <table id="myReserTable" class="table table-hover table-striped">
         <thead>
           <tr>
-            <th>Especialista</th>
-            <th>Email</th>
-            <th>Teléfono</th>
-            <th>Categoría</th>
-            <th>Especialista ID</th>
+            <th>ID</th>
             <th>Fecha Inicial</th>
             <th>Fecha Final</th>
             <th>Score</th>
@@ -18,18 +14,14 @@
 
         <tbody>
             <tr v-for="reservation in getReservationsByContractor" :key="reservation.id">
-              <td class="myTd">{{getSpecialistById.name}} {{ getSpecialistById.lastname}} </td>
-              <td class="myTd">{{getSpecialistById.email}}</td>
-              <td class="myTd">{{getSpecialistById.telephone_number}}</td>
-              <td class="myTd">{{getSpecialistById.category}}</td>
-              <td class="myTd">{{this.specialistId=reservation.specialistId}}</td>
+              <td class="myTd">{{reservation.id}}</td>
               <td class="myTd">{{reservation.initialDate}}</td>
               <td class="myTd">{{reservation.finalDate}}</td>
               <td class="myTd">{{reservation.score }}</td>
               <td>
                 <a class="btn btn-primary" href="#"><i class="fas fa-pencil-alt"></i> Editar</a>
                 &nbsp;
-                <a class="btn btn-danger" href="#"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                <a class="btn btn-danger" href="#" @click="cancelReservation(reservation.id)"><i class="fas fa-trash-alt"></i> Eliminar</a>
               </td>
             </tr>
         </tbody>
@@ -100,6 +92,22 @@ export default {
       },
     
   },
+  },
+  methods: {
+    cancelReservation(reserveId) {
+      console.log(`Delete contact: ${reserveId}`)
+      this.$apollo.mutate({
+          mutation: gql`
+            mutation Mutation($reserveId: Int!) {
+            deleteReserve(reserveId: $reserveId)
+          }
+          `,
+          variables: {
+            reserveId: reserveId,
+          },
+        })
+        // location.reload();
+    },
   },
   created: function () {
     this.$apollo.queries.getReservationsByContractor.refetch();
