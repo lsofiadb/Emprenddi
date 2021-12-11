@@ -9,7 +9,7 @@
         <h5 class="card-title">Email: &nbsp;<span>{{specialist.email}}</span></h5>
         <h5 class="card-title">Ciudad: &nbsp;<span>{{specialist.city}}</span></h5>
         <div class="d-flex justify-content-center mt-4">
-          <router-link to="/user/Information" class="btn btn-primary">ver mas</router-link>
+          <router-link :to="{name: 'information', params:{specialistId:specialist.id}}" class="btn btn-primary">ver mas</router-link>
         </div>
       </div>
     </div>

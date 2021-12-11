@@ -33,7 +33,7 @@ const routes = [
         meta: { requiresAuth: false }
     },
     {
-        path: '/user/information',
+        path: '/user/information/:specialistId',
         name: 'information',
         component: Information,
         meta: { requiresAuth: true }
