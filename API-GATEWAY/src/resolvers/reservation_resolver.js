@@ -50,9 +50,15 @@ const reservationResolver = {
     createReserve: async (_, { reserveInput }, { dataSources, userIdToken }) => {
       if (userIdToken) {
         const getNextId = await (dataSources.reservationAPI.getLastId());
+        let allReservations = await (dataSources.reservationAPI.getAllReservations());
+        let saveIds = [];
+        allReservations.forEach((element) => {
+          saveIds.push(element.id);
+        });
+        let myNextId = Math.max(...saveIds) + 1;
 
         const authInput = {
-          id: getNextId,
+          id: myNextId,
           contractorId: reserveInput.contractorId,
           specialistId: reserveInput.specialistId,
           initialDate: reserveInput.initialDate,
