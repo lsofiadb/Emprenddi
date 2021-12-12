@@ -4,7 +4,7 @@
       <table id="myReserTable" class="table table-hover table-striped">
         <thead>
           <tr>
-            <th>ID</th>
+            <th style="display: none;">ID</th>
             <th>Fecha Inicial</th>
             <th>Fecha Final</th>
             <th style="display: none;">Especialista</th>
@@ -15,7 +15,7 @@
 
         <tbody>
             <tr v-for="reservation in getReservationsByContractor" :key="reservation.id">
-              <td class="myTd">{{reservation.id}}</td>
+              <td style="display: none;" class="myTd">{{reservation.id}}</td>
               <td class="myTd">{{moment(reservation.initialDate).format(moment.HTML5_FMT.DATE)}}&nbsp;&nbsp;&nbsp;&nbsp;{{moment(reservation.initialDate).format(moment.HTML5_FMT.TIME_SECONDS)}}</td>
               <td class="myTd">{{moment(reservation.finalDate).format(moment.HTML5_FMT.DATE)}}&nbsp;&nbsp;&nbsp;&nbsp;{{moment(reservation.finalDate).format(moment.HTML5_FMT.TIME_SECONDS)}}</td>
               <td style="display: none;" class="myTd">{{reservation.specialistId }}</td>
@@ -158,15 +158,38 @@ export default {
   },
   methods: {
     cancelReservation(reserveId) {
-      this.$apollo.mutate({
-          mutation: gql`
-            mutation Mutation($reserveId: Int!) {
-            deleteReserve(reserveId: $reserveId)
-          }
-          `,
-          variables: {
-            reserveId: reserveId,
-          },
+      Swal.fire({
+        title: '¿Estás seguro?',
+        text: "La reserva se eliminará",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, ¡eliminar!!',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.$apollo.mutate({
+            mutation: gql`
+              mutation Mutation($reserveId: Int!) {
+              deleteReserve(reserveId: $reserveId)
+            }
+            `,
+            variables: {
+              reserveId: reserveId,
+            },
+          })
+
+          Swal.fire(
+            '¡Éxito!',
+            'La reserva ha sido eliminada',
+            'success'
+          )
+
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
+        }
       })
     },
   },
@@ -183,7 +206,7 @@ export default {
 }
 
 thead {
-  background-color: #6C7A8A;
+  background-color: #34495e;
   color: #ffffff;
 }
 
@@ -194,7 +217,11 @@ thead th {
 table {
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 0px 10px 1px #000000;
+  box-shadow: 0px 0px 10px 1px #333333;
+}
+
+tbody {
+  border-bottom: 10px solid #34495e;
 }
 
 .myTd {

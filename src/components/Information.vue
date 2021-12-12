@@ -6,7 +6,7 @@
           <img class="card-img-top mb-5 mb-md-0" src="../assets/user.png" alt="..."/>
         </div>
         <div class="col-md-6">
-          <h2 class="display-5 fw-bolder text-dark">Nombre del Profesional</h2>
+          <h2 class="display-5 fw-bolder">Nombre del Profesional</h2>
           <div class="fs-5 mb-5">
           </div>
           
@@ -30,8 +30,8 @@
               </div>
 
               <div class="d-flex">
-                <button class="btn btn-outline-dark flex-shrink-0" @click="createReservation()" type="button">
-                  <i class="bi-cart-fill me-1"></i>
+                <button class="myBtn btn btn-outline-dark flex-shrink-0" @click="createReservation()" type="button">
+                  <i class="fas fa-clipboard-check"></i>
                   Agendar Cita
                 </button>
               </div>
@@ -96,5 +96,18 @@ export default {
 <style>
 .myInformation {
   background-color: #ffffff;
+}
+
+h2 {
+  color: #34495e;
+}
+
+.dp__input_icon_pad {
+  border: 1px solid #333333;
+}
+
+.myBtn {
+  color: #ffffff;
+  background: #34495e;
 }
 </style>

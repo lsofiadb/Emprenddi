@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="all">
     <div class="main-section">
       <div class="modal-content">
         <div class="user-img">
@@ -31,7 +31,7 @@
               name="password"
             />
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" class="btn">
             <i class="fas fa-sign-in-alt"></i> Ingresar
           </button>
         </form>
@@ -103,6 +103,14 @@ export default {
 </script>
 
 <style scoped>
+.all {
+  position: absolute;
+  background-image: url('../assets/background.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .main-section {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -112,11 +120,11 @@ export default {
 }
 
 .modal-content {
-  background-color: #3B4652;
+  background-color: rgba(255, 234, 167, .7);
   padding: 0 56px;
-  box-shadow: 0px 0px 3px #848484;
-  width: 400px;
-  box-shadow: 0px 0px 5px 2px #000000;
+  width: 385px;
+  box-shadow: 0px 0px 5px 1px #333333;
+  border-radius: 20px;
 }
 
 .user-img {
@@ -138,13 +146,14 @@ export default {
   padding: 25px;
   padding-left: 60px;
   border-radius: 5px;
-  color: #ffffff;
+  color: #34495e;
+  font-weight: bold;
   margin-bottom: 25px;
-  background-color: #212529;
+  background-color: #ffffff;
 }
 
 .form-group div {
-  background: #0d6efd;
+  background: #34495e;
   width: 50px;
   height: 50px;
   display: flex;
@@ -161,6 +170,13 @@ button {
   padding-right: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
+  background: #34495e;
+  color: #ffffff;
+}
+
+button:hover {
+  color: #ffffff;
+  background: #333333;
 }
 
 .forgot {
@@ -168,12 +184,13 @@ button {
 }
 
 .forgot a {
-  font-size: 15px;
+  font-size: 14px;
   font-style: italic;
-  color: white;
+  font-weight: bold;
+  color: #34495e;
 }
 
 .forgot a:hover {
-  color: #B8BDBD;
+  color: #333333;
 }
 </style>

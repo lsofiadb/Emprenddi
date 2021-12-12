@@ -21,7 +21,7 @@
                   <router-link to="/user/contact" class="nav-link text-white">Contáctanos</router-link>
               </li>
               <li class="nav-item">
-                  <router-link to="/user/Reservations" class="nav-link text-white">Reservations</router-link>
+                  <router-link to="/user/Reservations" class="nav-link text-white">Reservas</router-link>
               </li>
               <li class="cerrarSesion nav-item">
                   <router-link v-if="!is_auth" to="/user/logIn" class="nav-link text-white">Login</router-link>
@@ -169,12 +169,13 @@ export default {
 
 <style scoped>
 .myNav {
-  background-color: #E5E9F2;
+  background-color: #ffeaa7;
   padding: 20px;
+  box-shadow: 0px 2px 5px 0px #333333;
 }
 
 .myNav a {
-  color: #5E6873!important;
+  color: #34495e!important;
   font-weight: 700;
 }
 
@@ -200,6 +201,16 @@ export default {
   border-radius: 50%;
 }
 
+.logo div {
+  background: #34495e;
+  border: 2px solid #000000;
+}
+
+.myFooter div {
+  background: #34495e;
+  border: 2px solid #ffffff;
+}
+
 .logo div img, .myFooter div img {
   width: 65%;
   height: 65%;
@@ -210,9 +221,9 @@ export default {
   position: relative;
   margin-top: 4px;
   margin-left: 5px;
-  color: #47525E;
+  color: #34495e;
   font-size: 28px;
-  text-shadow: 2px 1px 1px #000000;
+  text-shadow: 2px 1px 1px #333333;
 }
 
 .myUlOne {
@@ -242,8 +253,9 @@ export default {
 }
 
 .myFooter {
-  background-color: #47525E;
+  background-color: #34495e;
   padding: 65px;
+  box-shadow: 0px -2px 5px 0px #333333;
 }
 
 .myFooter .mySpanOne {

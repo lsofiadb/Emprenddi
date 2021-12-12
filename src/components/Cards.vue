@@ -9,7 +9,7 @@
         <h5 class="card-title">Email: &nbsp;<span>{{specialist.email}}</span></h5>
         <h5 class="card-title">Ciudad: &nbsp;<span>{{specialist.city}}</span></h5>
         <div class="d-flex justify-content-center mt-4">
-          <router-link :to="{name: 'information', params:{specialistId:specialist.id}}" class="btn btn-primary">ver mas</router-link>
+          <router-link :to="{name: 'information', params:{specialistId:specialist.id}}" class="btn">ver mas</router-link>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@ apollo: {
 }
 
 .card-body {
-  background: #dfe4ea;
+  background: #ecf0f1;
 }
 
 .card-body span {
@@ -101,7 +101,7 @@ apollo: {
 
 .card {
   width: 350px;
-  box-shadow: 0px 0px 20px 0px #000000;
+  box-shadow: 0px 0px 20px 0px #333333;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -109,5 +109,15 @@ apollo: {
 .card img {
   width: 100%;
   height: 400px;
+}
+
+.card a {
+  background: #34495e;
+  color: #ffffff;
+}
+
+.card a:hover {
+  background: #333333;
+  color: #ffffff;
 }
 </style>

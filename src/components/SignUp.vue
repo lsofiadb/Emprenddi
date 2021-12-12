@@ -197,7 +197,7 @@ export default {
   padding: 50px;
   border-radius: 10px;
   background-color: #3b4652!important;
-  box-shadow: 0px 0px 5px 0px #000000;
+  box-shadow: 0px 0px 5px 0px #333333;
 }
 
 .text-muted {
