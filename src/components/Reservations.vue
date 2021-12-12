@@ -7,7 +7,7 @@
             <th style="display: none;">ID</th>
             <th>Fecha Inicial</th>
             <th>Fecha Final</th>
-            <th style="display: none;">Especialista</th>
+            <th>Especialista</th>
             <th>Score</th>
             <th>Acciones</th>
           </tr>
@@ -18,7 +18,7 @@
               <td style="display: none;" class="myTd">{{reservation.id}}</td>
               <td class="myTd">{{moment(reservation.initialDate).format(moment.HTML5_FMT.DATE)}}&nbsp;&nbsp;&nbsp;&nbsp;{{moment(reservation.initialDate).format(moment.HTML5_FMT.TIME_SECONDS)}}</td>
               <td class="myTd">{{moment(reservation.finalDate).format(moment.HTML5_FMT.DATE)}}&nbsp;&nbsp;&nbsp;&nbsp;{{moment(reservation.finalDate).format(moment.HTML5_FMT.TIME_SECONDS)}}</td>
-              <td style="display: none;" class="myTd">{{reservation.specialistId }}</td>
+              <td class="myTd">{{reservation.specialistId }}</td>
               <td class="myTd">{{reservation.score }}</td>
               <td class="myTd">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-pencil-alt"></i> Editar</button>
@@ -199,7 +199,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .myReser {
   padding: 50px;
   background-color: #ffffff;

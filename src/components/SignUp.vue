@@ -188,13 +188,18 @@ export default {
 <style scoped>
 .contact-box {
   margin: 0 auto;
-  width: 700px;
+  width: 100vw;
+  background: #ffeaa7;
+  background: -webkit-linear-gradient(to right, #ffffff, #ffeaa7);
+  background: linear-gradient(to right, #ffffff, #ffeaa7);
+  position: absolute;
 }
 
 .myRegister {
   color: #ffffff;
-  margin: 50px;
+  margin: 50px auto;
   padding: 50px;
+  width: 700px;
   border-radius: 10px;
   background-color: #3b4652!important;
   box-shadow: 0px 0px 5px 0px #333333;
@@ -206,7 +211,8 @@ export default {
 
 .myBox {
   border-radius: 50%;
-  background: #ffffff;
+  background: #34495e;
+  border: 2px solid #ffffff;
   width: 200px;
   height: 200px;
   display: flex;

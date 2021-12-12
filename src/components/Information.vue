@@ -2,17 +2,17 @@
  <section class="myInformation py-5">
     <div class="container px-4 px-lg-5 my-5">
       <div class="row gx-4 gx-lg-5 align-items-center">
-        <div class="col-md-6">
-          <img class="card-img-top mb-5 mb-md-0" src="../assets/user.png" alt="..."/>
+        <div class="imgContainer col-md-6">
+          <img class="card-img-top mb-5 mb-md-0" v-bind:src="getSpecialistById.url" alt="..."/>
         </div>
         <div class="col-md-6">
-          <h2 class="display-5 fw-bolder">Nombre del Profesional</h2>
+          <h2 class="display-5 fw-bolder text-dark text-center"><u>{{getSpecialistById.name}} {{getSpecialistById.lastname}}</u></h2>
           <div class="fs-5 mb-5">
           </div>
           
           <!-- FORM -->          
           <form v-on:submit.prevent="">
-            <div class="col-6">
+            <div class="myColumn col-6">
               <div class="form-group mb-3">
                 <label class="font-weight-bold">
                   Fecha Inicial 
@@ -29,7 +29,7 @@
                 <Datepicker v-model="myDates.finalDate" :is24="false" />
               </div>
 
-              <div class="d-flex">
+              <div class="btnBox d-flex">
                 <button class="myBtn btn btn-outline-dark flex-shrink-0" @click="createReservation()" type="button">
                   <i class="fas fa-clipboard-check"></i>
                   Agendar Cita
@@ -63,8 +63,13 @@ export default {
           initialDate: '',
           finalDate: '',
         },
+        getSpecialistById: {
+          username: "",
+          url: "",
+        }
       }
-    },    
+    },   
+
     methods: {
       createReservation() {
         this.$apollo.mutate({
@@ -89,13 +94,49 @@ export default {
             }
           },
         })
+        toastr.success('Tu reserva quedo registrada', {timeOut: 1000});
       },
     },
+    apollo: {
+    getSpecialistById: {
+      query: gql`
+        query Query($specialistId: Int!) {
+        getSpecialistById(specialistId: $specialistId) {
+          name
+          lastname
+          url
+          score
+        }
+      }
+      `,
+      variables() {
+        return {
+          specialistId: this.specialistId,
+
+        };
+      },
+    },
+  },
+  // created: function () {
+  //   console.log(this.getSpecialistById)
+  // },
 }
 </script>
-<style>
+<style scoped>
 .myInformation {
   background-color: #ffffff;
+}
+
+.imgContainer, .btnBox, form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myInformation img {
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 2px #333333;
 }
 
 h2 {
@@ -106,8 +147,18 @@ h2 {
   border: 1px solid #333333;
 }
 
+.myColumn {
+  border: 2px dashed #000000;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 0px 10px 0px #333333;
+}
+
 .myBtn {
   color: #ffffff;
   background: #34495e;
+  font-size: 25px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 </style>

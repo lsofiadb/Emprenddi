@@ -30,9 +30,10 @@
         <section>
           <div>
             <select name="" id="mySelect">
-              <option value="">One</option>
-              <option value="">Two</option>
-              <option value="">Three</option>
+              <option value="">Carpintero</option>
+              <option value="">Pintor</option>
+              <option value="">Desarrollador</option>
+              <option value="">Electricista</option>
             </select>
             <a>Buscar</a>
           </div>
