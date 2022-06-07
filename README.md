@@ -22,6 +22,8 @@ Arquitectura por microservicios brindando una mayor escalabilidad e integración
 
 ## Interfaces gráficas :tv:
 
+*NOTA*: para visualizar el contenido de Emprenddi es necesario autenticarse :closed_lock_with_key: 
+
 *SignUp* https://emprenddi-frontend.herokuapp.com/user/signUp
 
 <div align="center">
